@@ -24,13 +24,19 @@ function Caracteristiques(props) {
     props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier
 
   const mensualite = () => {
+    if (montantPret && props.taux && props.duree) {
     return (((montantPret * props.taux) / 12) / (1 - Math.pow((1 + props.taux / 12), -(props.duree)))).toFixed(2)
+    }
+    else return 0
   }
 
   const nouvellesCharges = props.charges + parseFloat(mensualite())
 
   const endettement = () => {
+    if (mensualite() && props.revenus){
     return ((nouvellesCharges/props.revenus)*100).toFixed(2)
+    }
+    else return 0
   }
 
   const rav = () => {

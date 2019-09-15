@@ -39,7 +39,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="text"
                 label="Nom du projet"
-                onChange={(e) => setNomProjet(parseFloat(e.target.value))}
+                onChange={(e) => setNomProjet(e.target.value)}
                 placeholder="Nom du projet"
               />
               <Form.Input
@@ -47,7 +47,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant de l'acquisition"
-                onChange={(e) => setMontantAcquisition(parseFloat(e.target.value))}
+                onChange={(e) => setMontantAcquisition(e.target.value)}
                 placeholder="Montant de l'acquisition"
               />
               <Form.Input
@@ -79,7 +79,7 @@ function Formulaire(props) {
                     onChange={(e) => setRevMadame(parseFloat(e.target.value))}
                     placeholder="Madame"
                   />
-                                    <Form.Input
+                  <Form.Input
                     fluid
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
@@ -98,6 +98,7 @@ function Formulaire(props) {
                     type="number"
                     label="Mes Charges"
                     onChange={(e) => setCharges(parseFloat(e.target.value))}
+                    defaultValue={0}
                     placeholder="Mes charges"
                   />
                 </Form.Group>
@@ -196,10 +197,10 @@ function Formulaire(props) {
             nomProjet={nomProjet}
             montantAcquisition={montantAcquisition}
             montantTravaux={montantTravaux}
-            tauxNotaire={tauxNotaire/100}
-            tauxAgence={tauxAgence/100}
-            fraisNotaire = {montantAcquisition*tauxNotaire}
-            fraisAgence = {montantAcquisition*tauxAgence}
+            tauxNotaire={tauxNotaire / 100}
+            tauxAgence={tauxAgence / 100}
+            fraisNotaire={montantAcquisition * tauxNotaire}
+            fraisAgence={montantAcquisition * tauxAgence}
             revenus={revMonsieur + revMadame + autresRevenus}
             charges={charges}
             epargne={epargne}
@@ -216,17 +217,17 @@ function Formulaire(props) {
         nomProjet={nomProjet}
         montantAcquisition={montantAcquisition}
         montantTravaux={montantTravaux}
-        tauxNotaire={tauxNotaire/100}
-        tauxAgence={tauxAgence/100}
-        fraisNotaire = {montantAcquisition*tauxNotaire}
-        fraisAgence = {montantAcquisition*tauxAgence}
+        tauxNotaire={tauxNotaire / 100}
+        tauxAgence={tauxAgence / 100}
+        fraisNotaire={montantAcquisition * tauxNotaire}
+        fraisAgence={montantAcquisition * tauxAgence}
         revenus={revMonsieur + revMadame + autresRevenus}
         charges={charges}
         epargne={epargne}
         apport={apport}
         apportSup={apportSup}
         duree={duree}
-        taux={taux/100}
+        taux={taux / 100}
         assurancesMonsieur={assurancesMonsieur}
         assurancesMadame={assurancesMadame}
         garantie={garantie}
