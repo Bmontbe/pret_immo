@@ -23,12 +23,12 @@ const numStr = (a, b) => {
 }
 
 const totalProjet = () => {
-  return (props.montantAcquisition + props.montantTravaux 
-    + props.fraisNotaire+props.fraisAgence + props.fraisDossier + props.garantie).toFixed(0)
+  return numStr(Number(props.montantAcquisition + props.montantTravaux 
+    + props.fraisNotaire+props.fraisAgence + props.fraisDossier + props.garantie).toFixed(0))
 }
 
 const totalApport = () => {
-  return numStr(props.apport + props.apportSup)
+  return (numStr(Number(props.apport +props.apportSup)))
 }
 
   return (
@@ -46,23 +46,23 @@ const totalApport = () => {
     </div>
     <div className="categorie">
      <div className="title">Frais de notaire : </div>
-     <div className="montant"><span>{numStr((props.fraisNotaire).toFixed(0))}</span> euros</div>
+     <div className="montant"><span>{numStr(Number(props.fraisNotaire).toFixed(0))}</span> euros</div>
     </div>
     <div className="categorie">
      <div className="title">Frais d'agence : </div>
-     <div className="montant"><span>{numStr((props.fraisAgence).toFixed(0))}</span> euros</div>
+     <div className="montant"><span>{numStr(Number(props.fraisAgence).toFixed(0))}</span> euros</div>
     </div>
     <div className="categorie">
      <div className="title">Frais de garanties : </div>
-     <div className="montant"><span>{numStr(props.garantie)}</span> euros</div>
+     <div className="montant"><span>{numStr(Number(props.garantie))}</span> euros</div>
     </div>
     <div className="categorie">
      <div className="title">Frais de dossier : </div>
-     <div className="montant"><span>{numStr(props.fraisDossier)}</span> euros</div>
+     <div className="montant"><span>{numStr(Number(props.fraisDossier))}</span> euros</div>
     </div>
     <div className="categorie">
      <div className="title">Total du projet : </div>
-     <div className="montant"><span>{numStr(totalProjet())}</span> euros</div>
+     <div className="montant"><span>{totalProjet()}</span> euros</div>
     </div>
     <div className="nomProjet">
      <div>Mes Revenus et mes charges annuels</div>

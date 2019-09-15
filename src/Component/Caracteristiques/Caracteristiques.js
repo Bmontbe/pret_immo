@@ -46,24 +46,24 @@ function Caracteristiques(props) {
   return (
     <div className="caracteristiques">
       <div className="categorieCaracteristiques">
-        <div>Montant du prêt : </div>
-        <div>{numStr(montantPret)} €</div>
+        <div className="title">Montant du prêt : </div>
+        <div className="montant"><span>{numStr(montantPret)}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div>Mensualité : </div>
-        <div>{numStr(mensualite())} €</div>
+        <div className="title">Mensualité : </div>
+        <div className="montant"><span>{numStr(mensualite())}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div>Taux endettement : </div>
-        <div>{endettement()} %</div>
+        <div className="title">Taux endettement : </div>
+        <div className="montant"><span>{endettement()}</span> %</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div>Reste à venir (mois) : </div>
-        <div>{rav()} €</div>
+        <div className="title">Reste à vivre (mois) : </div>
+        <div className="montant"><span>{rav()}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div>Epargne restante : </div>
-        <div>{props.epargne - props.apport} €</div>
+        <div className="title">Epargne restante : </div>
+        <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
       </div>
     </div>
   );

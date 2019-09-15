@@ -23,6 +23,7 @@ label {
 
 .recapPret{
   background-color: #c0a478;
+  padding: 2.5rem;
   width: 30%;
   display:flex;
   flex-direction: column;
@@ -32,7 +33,7 @@ label {
 .caracteristiques{
   padding: 2.5rem;
   margin-top: 2rem;
-  background-color: #c0a478;
+  background-color: #ce8278;
   width: 100%;
   display:flex;
   border-radius: 5rem;
@@ -69,4 +70,33 @@ label {
 
 .charges {
   width: 30%;
+}
+
+@media screen and (max-width: 1150px) {
+  .formulaireRecap, .block {
+    flex-direction: column;
+  }
+
+  .formulaireProjet, .formulaireBanque, .recapPret, .revenus, .charges {
+    width: 100%;
+  }
+
+  label {
+    font-size: 80% !important;
+  }
+
+  #form-subcomponent-shorthand-input-first-name{
+    font-size:10px !important;
+  }
+
+  .sectionFirst {
+    font-size: 80%;
+  }
+  .section {
+    font-size: 80%;
+  }
+
+  .caracteristiques {
+    margin-top: 0;
+  }
 }

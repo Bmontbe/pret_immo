@@ -9,7 +9,7 @@ span {
   margin-bottom: 1.5rem;
   padding-top:2rem;
   text-align: center;
-  font-size:30px;
+  font-size:25px;
   font-weight: bold;
 }
 
@@ -27,4 +27,19 @@ span {
   text-align : right;
   width: 12rem;
   font-size: 16px
+}
+
+@media screen and (max-width: 1150px) {
+  .nomProjet{
+    font-size: 120%;
+    padding-top:0.5rem;
+  }
+
+  .title, .montant {
+    font-size: 78%;
+  }
+
+  span{
+    font-size:90%
+  }
 }
