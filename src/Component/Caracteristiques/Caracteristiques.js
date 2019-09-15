@@ -20,14 +20,14 @@ function Caracteristiques(props) {
     return c;
   }
 
-  const montantPret = Number(props.montantAcquisition + props.montantTravaux - props.apport-props.apportSup + 
-    props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier)
+  const montantPret = props.montantAcquisition + props.montantTravaux - props.apport-props.apportSup + 
+    props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier
 
   const mensualite = () => {
-    return Number(((montantPret) * props.taux / 12) / (1 - Math.pow((1 + props.taux / 12), -(props.duree)))).toFixed(2)
+    return (((montantPret * props.taux) / 12) / (1 - Math.pow((1 + props.taux / 12), -(props.duree)))).toFixed(2)
   }
 
-  const nouvellesCharges = Number(props.charges) + Number(mensualite())
+  const nouvellesCharges = props.charges + parseFloat(mensualite())
 
   const endettement = () => {
     return ((nouvellesCharges/props.revenus)*100).toFixed(2)

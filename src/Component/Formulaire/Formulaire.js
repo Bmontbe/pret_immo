@@ -39,7 +39,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="text"
                 label="Nom du projet"
-                onChange={(e) => setNomProjet(e.target.value)}
+                onChange={(e) => setNomProjet(parseFloat(e.target.value))}
                 placeholder="Nom du projet"
               />
               <Form.Input
@@ -47,7 +47,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant de l'acquisition"
-                onChange={(e) => setMontantAcquisition(e.target.value)}
+                onChange={(e) => setMontantAcquisition(parseFloat(e.target.value))}
                 placeholder="Montant de l'acquisition"
               />
               <Form.Input
@@ -55,7 +55,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-last-name'
                 type="number"
                 label="Montant des travaux"
-                onChange={(e) => setMontantTravaux(e.target.value)}
+                onChange={(e) => setMontantTravaux(parseFloat(e.target.value))}
                 placeholder="Montant travaux"
               />
             </Form.Group>
@@ -68,7 +68,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Monsieur"
-                    onChange={(e) => setRevMonsieur(e.target.value)}
+                    onChange={(e) => setRevMonsieur(parseFloat(e.target.value))}
                     placeholder="Monsieur"
                   />
                   <Form.Input
@@ -76,7 +76,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Madame"
-                    onChange={(e) => setRevMadame(e.target.value)}
+                    onChange={(e) => setRevMadame(parseFloat(e.target.value))}
                     placeholder="Madame"
                   />
                                     <Form.Input
@@ -84,7 +84,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Autres"
-                    onChange={(e) => setAutresRevenus(e.target.value)}
+                    onChange={(e) => setAutresRevenus(parseFloat(e.target.value))}
                     placeholder="Autres"
                   />
                 </Form.Group>
@@ -97,7 +97,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Mes Charges"
-                    onChange={(e) => setCharges(e.target.value)}
+                    onChange={(e) => setCharges(parseFloat(e.target.value))}
                     placeholder="Mes charges"
                   />
                 </Form.Group>
@@ -110,7 +110,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon épargne"
-                onChange={(e) => setEpargne(e.target.value)}
+                onChange={(e) => setEpargne(parseFloat(e.target.value))}
                 placeholder="Mon épargne"
               />
               <Form.Input
@@ -118,7 +118,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon apport"
-                onChange={(e) => setApport(e.target.value)}
+                onChange={(e) => setApport(parseFloat(e.target.value))}
                 placeholder="Mon apport"
               />
               <Form.Input
@@ -126,7 +126,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Autre Apport"
-                onChange={(e) => setApportSup(e.target.value)}
+                onChange={(e) => setApportSup(parseFloat(e.target.value))}
                 placeholder="Autre Apport"
               />
             </Form.Group>
@@ -141,7 +141,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Durée (mois)"
-                onChange={(e) => setDuree(e.target.value)}
+                onChange={(e) => setDuree(parseFloat(e.target.value))}
                 placeholder="Durée (mois)"
               />
               <Form.Input
@@ -149,7 +149,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Taux d'emprunt"
-                onChange={(e) => setTaux(e.target.value)}
+                onChange={(e) => setTaux(parseFloat(e.target.value))}
                 placeholder="Taux d'emprunt"
               />
             </Form.Group>
@@ -159,7 +159,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Monsieur"
-                onChange={(e) => setAssurancesMonsieur(e.target.value)}
+                onChange={(e) => setAssurancesMonsieur(parseFloat(e.target.value))}
                 placeholder="Assurance Monsieur"
               />
               <Form.Input
@@ -167,7 +167,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Madame"
-                onChange={(e) => setAssurancesMadame(e.target.value)}
+                onChange={(e) => setAssurancesMadame(parseFloat(e.target.value))}
                 placeholder="Assurance Madame"
               />
             </Form.Group>
@@ -177,7 +177,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Garanties"
-                onChange={(e) => setGarantie(e.target.value)}
+                onChange={(e) => setGarantie(parseFloat(e.target.value))}
                 placeholder="Garanties"
               />
               <Form.Input
@@ -185,7 +185,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Frais Dossier"
-                onChange={(e) => setFraisDossier(e.target.value)}
+                onChange={(e) => setFraisDossier(parseFloat(e.target.value))}
                 placeholder="Frais Dossier"
               />
             </Form.Group>
@@ -194,43 +194,43 @@ function Formulaire(props) {
         <div className='recapPret'>
           <Projet
             nomProjet={nomProjet}
-            montantAcquisition={Number(montantAcquisition)}
-            montantTravaux={Number(montantTravaux)}
-            tauxNotaire={Number(tauxNotaire/100)}
-            tauxAgence={Number(tauxAgence/100)}
+            montantAcquisition={montantAcquisition}
+            montantTravaux={montantTravaux}
+            tauxNotaire={tauxNotaire/100}
+            tauxAgence={tauxAgence/100}
             fraisNotaire = {montantAcquisition*tauxNotaire}
             fraisAgence = {montantAcquisition*tauxAgence}
-            revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
-            charges={Number(charges)}
-            epargne={Number(epargne)}
-            apport={Number(apport)}
-            apportSup={Number(apportSup)}
-            assurancesMonsieur={Number(assurancesMonsieur)}
-            assurancesMadame={Number(assurancesMadame)}
-            garantie={Number(garantie)}
-            fraisDossier={Number(fraisDossier)}
+            revenus={revMonsieur + revMadame + autresRevenus}
+            charges={charges}
+            epargne={epargne}
+            apport={apport}
+            apportSup={apportSup}
+            assurancesMonsieur={assurancesMonsieur}
+            assurancesMadame={assurancesMadame}
+            garantie={garantie}
+            fraisDossier={fraisDossier}
           />
         </div>
       </div>
       <Caracteristiques
         nomProjet={nomProjet}
-        montantAcquisition={Number(montantAcquisition)}
-        montantTravaux={Number(montantTravaux)}
-        tauxNotaire={Number(tauxNotaire/100)}
-        tauxAgence={Number(tauxAgence/100)}
+        montantAcquisition={montantAcquisition}
+        montantTravaux={montantTravaux}
+        tauxNotaire={tauxNotaire/100}
+        tauxAgence={tauxAgence/100}
         fraisNotaire = {montantAcquisition*tauxNotaire}
         fraisAgence = {montantAcquisition*tauxAgence}
-        revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
-        charges={Number(charges)}
-        epargne={Number(epargne)}
-        apport={Number(apport)}
-        apportSup={Number(apportSup)}
-        duree={Number(duree)}
-        taux={Number(taux/100)}
-        assurancesMonsieur={Number(assurancesMonsieur)}
-        assurancesMadame={Number(assurancesMadame)}
-        garantie={Number(garantie)}
-        fraisDossier={Number(fraisDossier)}
+        revenus={revMonsieur + revMadame + autresRevenus}
+        charges={charges}
+        epargne={epargne}
+        apport={apport}
+        apportSup={apportSup}
+        duree={duree}
+        taux={taux/100}
+        assurancesMonsieur={assurancesMonsieur}
+        assurancesMadame={assurancesMadame}
+        garantie={garantie}
+        fraisDossier={fraisDossier}
       />
     </div>
   );
