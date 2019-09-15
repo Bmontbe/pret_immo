@@ -1,5 +1,6 @@
 {
-  "name": "https://beatricedemontbeillard.fr/apps/monpretimmo/",
+  "homepage": "https://beatricedemontbeillard.fr/apps/monpretimmo/",
+  "name":"pret_immo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
