@@ -20,11 +20,11 @@ span {
 }
 
 .title {
-  width: 20rem;
+  width: 15rem;
 }
 
 .montant {
   text-align : right;
-  width: 10rem;
+  width: 12rem;
   font-size: 16px
 }
