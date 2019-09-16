@@ -33,7 +33,7 @@ function Caracteristiques(props) {
   const nouvellesCharges = props.charges + parseFloat(mensualite())
 
   const endettement = () => {
-    if (mensualite() && props.revenus){
+    if (props.revenus){
     return ((nouvellesCharges/props.revenus)*100).toFixed(2)
     }
     else return 0

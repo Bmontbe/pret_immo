@@ -6,10 +6,7 @@ import Formulaire from './Component/Formulaire/Formulaire'
 function App() {
   return (
     <div>
-    <div className="appliImmo">Mon prêt immobilier</div>
-    <div>
     <Formulaire></Formulaire>
-    </div>
     </div>
   );
 }

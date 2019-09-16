@@ -33,7 +33,7 @@ const totalApport = () => {
 
   return (
  <div className="recap">
-    <div className="nomProjet">
+    <div className="sectionFirst">
      <div>{props.nomProjet ? `Mon projet : ${props.nomProjet}` : "Mon projet"}</div>
     </div>
    <div className="categorie">
@@ -60,11 +60,11 @@ const totalApport = () => {
      <div className="title">Frais de dossier : </div>
      <div className="montant"><span>{numStr(Number(props.fraisDossier))}</span> euros</div>
     </div>
-    <div className="categorie">
+    <div className="categorieTotal">
      <div className="title">Total du projet : </div>
      <div className="montant"><span>{totalProjet()}</span> euros</div>
     </div>
-    <div className="nomProjet">
+    <div className="section">
      <div>Mes Revenus et mes charges annuels</div>
     </div>
     <div className="categorie">
@@ -75,7 +75,7 @@ const totalApport = () => {
      <div className="title">Total de mes charges : </div>
      <div className="montant"><span>{numStr(props.charges)}</span> euros</div>
     </div>
-    <div className="nomProjet">
+    <div className="section">
      <div>Mon épargne et mon apport</div>
     </div>
     <div className="categorie">
@@ -90,7 +90,7 @@ const totalApport = () => {
      <div className="title">Apport supplémentaire : </div>
      <div className="montant"><span>{numStr(props.apportSup)}</span> euros</div>
     </div>
-    <div className="categorie">
+    <div className="categorieTotal">
      <div className="title">Total de votre apport : </div>
      <div className="montant"><span>{totalApport()}</span> euros</div>
     </div>

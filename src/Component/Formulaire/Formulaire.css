@@ -14,7 +14,11 @@
 
 label {
   color:white !important;
-  font-size: 16px !important;
+  font-size:12px !important;
+}
+
+#form-subcomponent-shorthand-input-first-name{
+  font-size:12px;
 }
 
 .formulaireRecap{
@@ -32,7 +36,6 @@ label {
 
 .caracteristiques{
   padding: 2.5rem;
-  margin-top: 2rem;
   background-color: #ce8278;
   width: 100%;
   display:flex;
@@ -41,8 +44,9 @@ label {
 
 .sectionFirst {
   color: #282c34;
-  font-size: 20px;
-  padding: 1rem;
+  font-size: 16px;
+  text-align:center;
+  padding:0.5rem;
   margin-bottom: 1rem;
   background-color: white;
   font-weight: bold;
@@ -50,8 +54,9 @@ label {
 }
 .section {
   color: #282c34;
-  font-size: 20px;
-  padding: 1rem;
+  font-size: 16px;
+  text-align:center;
+  padding:0.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   background-color: white;
@@ -82,18 +87,18 @@ label {
   }
 
   label {
-    font-size: 80% !important;
+    font-size: 12px !important;
   }
 
   #form-subcomponent-shorthand-input-first-name{
-    font-size:10px !important;
+    font-size:11px !important;
   }
 
   .sectionFirst {
-    font-size: 80%;
+    font-size: 14px;
   }
   .section {
-    font-size: 80%;
+    font-size: 14px;
   }
 
   .caracteristiques {

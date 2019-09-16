@@ -4,14 +4,20 @@
 }
 
 .categorieCaracteristiques {
-  width: 10%;
+  width: 100%;
   justify-content: center;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .categorieCaracteristiques .montant {
-  font-size:100%;
+  font-size:14px;
   text-align:left;
+  width: 100%;
+}
+
+.categorieCaracteristiques .title {
+  font-size:14px;
+  width: 100%;
 }
 
 @media screen and (max-width: 1150px) {
@@ -25,12 +31,12 @@
   }
 
   .categorieCaracteristiques .title {
-    font-size:100%;
-    width: 16rem;
+    font-size:14px;
+    width: 60%;
   }
 
   .categorieCaracteristiques .montant {
-    font-size:100%;
+    font-size:14px;
     text-align:right;
 
   }
