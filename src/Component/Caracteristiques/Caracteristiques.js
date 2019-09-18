@@ -72,6 +72,7 @@ function Caracteristiques(props) {
     montantPret = {montantPret}
     mensualite = {mensualite()}
     duree = {props.duree}
+    taux = {props.taux}
     />
     </div>
   );

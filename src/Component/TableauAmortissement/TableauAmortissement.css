@@ -1,0 +1,55 @@
+.blockTableau{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.tableau{
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 5rem;
+}
+
+.lignePretTitre{
+  display:flex;
+  width: 100%;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.lignePret{
+  display:flex;
+  width: 100%;
+  border-bottom: 1px dashed black;
+}
+
+.colonne1 {
+  width: 5%;
+}
+
+.colonne {
+  width: 19%;
+}
+
+.colonne3 {
+  width: 19%;
+}
+
+@media screen and (max-width: 1150px) {
+
+  .tableau{
+    padding: 1rem;
+
+  }
+  .colonne1 {
+    width: 8%;
+  }
+  
+  .colonne {
+    width: 30%;
+  }
+
+  .colonne3 {
+    display:none;
+  }
+}
