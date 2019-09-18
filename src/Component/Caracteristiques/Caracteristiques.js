@@ -65,7 +65,7 @@ function Caracteristiques(props) {
           <div className="montant"><span>{numStr(mensualite())}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
-          <div className="title">Assurances /mois</div>
+          <div className="title">Assurances emprunteur(s) /mois</div>
           <div className="montant"><span>{numStr(adi())}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
