@@ -1,13 +1,14 @@
 .blockTableau{
   text-align: center;
   margin-top: 2rem;
+  
 }
 
 .tableau{
   margin-top: 2rem;
   padding: 2rem;
-  border: 1px solid black;
   border-radius: 5rem;
+  background-color: #cecaca;
 }
 
 .lignePretTitre{

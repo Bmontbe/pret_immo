@@ -21,8 +21,8 @@ function Caracteristiques(props) {
     return c;
   }
 
-  const montantPret = props.montantAcquisition + props.montantTravaux - props.apport-props.apportSup + 
-    props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier
+  const montantPret = (props.montantAcquisition + props.montantTravaux - props.apport-props.apportSup + 
+    props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier).toFixed(0)
 
   const mensualite = () => {
     if (montantPret && props.taux && props.duree) {
@@ -44,27 +44,37 @@ function Caracteristiques(props) {
     return (props.revenus - props.charges - mensualite()).toFixed(0)
   }
 
+  const adi = () => {
+    const MrMme = Number(props.assurancesMonsieur) + Number(props.assurancesMadame)
+    const dureePret = Number(props.duree)
+    return MrMme * dureePret
+  }
+
   return (
     <div>
     <div className="caracteristiques">
       <div className="categorieCaracteristiques">
-        <div className="title">Montant du prêt : </div>
+        <div className="title">Montant du prêt</div>
         <div className="montant"><span>{numStr(montantPret)}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div className="title">Mensualité : </div>
+        <div className="title">Mensualité</div>
         <div className="montant"><span>{numStr(mensualite())}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div className="title">Taux endettement : </div>
+        <div className="title">Assurances /mois</div>
+        <div className="montant"><span>{numStr(adi())}</span> €</div>
+      </div>
+      <div className="categorieCaracteristiques">
+        <div className="title">Taux endettement</div>
         <div className="montant"><span>{endettement()}</span> %</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div className="title">Reste à vivre (mois) : </div>
+        <div className="title">Reste à vivre /mois</div>
         <div className="montant"><span>{rav()}</span> €</div>
       </div>
       <div className="categorieCaracteristiques">
-        <div className="title">Epargne restante : </div>
+        <div className="title">Epargne restante</div>
         <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
       </div>
     </div>

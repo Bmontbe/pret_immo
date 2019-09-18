@@ -80,7 +80,7 @@ function TableauAmortissement(props) {
         {props.mensualite>0 ?
         <Button className = "buttonTableau" onClick={arrayPret}>tableau</Button>
         :
-        <div>Obtenez votre Tableau d'Amortissement en remplissant les champs</div>
+        <div className="info">Obtenez votre Tableau d'Amortissement en remplissant les champs</div>
           }
     {array && array.length>0 ?
         <div className="tableau">   

@@ -158,7 +158,7 @@ function Formulaire(props) {
                 fluid
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
-                label="Assurance Monsieur"
+                label="Assurance Monsieur (€) / mois"
                 onChange={(e) => setAssurancesMonsieur(e.target.value)}
                 placeholder="Assurance Monsieur"
               />
@@ -166,7 +166,7 @@ function Formulaire(props) {
                 fluid
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
-                label="Assurance Madame"
+                label="Assurance Madame (€) / mois"
                 onChange={(e) => setAssurancesMadame(e.target.value)}
                 placeholder="Assurance Madame"
               />
