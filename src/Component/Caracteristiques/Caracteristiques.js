@@ -21,12 +21,12 @@ function Caracteristiques(props) {
     return c;
   }
 
-  const montantPret = (props.montantAcquisition + props.montantTravaux - props.apport-props.apportSup + 
+  const montantPret = (props.montantAcquisition + props.montantTravaux - props.apport - props.apportSup +
     props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier).toFixed(0)
 
   const mensualite = () => {
     if (montantPret && props.taux && props.duree) {
-    return (((montantPret * props.taux) / 12) / (1 - Math.pow((1 + props.taux / 12), -(props.duree)))).toFixed(2)
+      return (((montantPret * props.taux) / 12) / (1 - Math.pow((1 + props.taux / 12), -(props.duree)))).toFixed(2)
     }
     else return 0
   }
@@ -34,8 +34,8 @@ function Caracteristiques(props) {
   const nouvellesCharges = props.charges + parseFloat(mensualite())
 
   const endettement = () => {
-    if (props.revenus){
-    return ((nouvellesCharges/props.revenus)*100).toFixed(2)
+    if (props.revenus) {
+      return ((nouvellesCharges / props.revenus) * 100).toFixed(2)
     }
     else return 0
   }
@@ -52,38 +52,41 @@ function Caracteristiques(props) {
 
   return (
     <div>
-    <div className="caracteristiques">
-      <div className="categorieCaracteristiques">
-        <div className="title">Montant du prêt</div>
-        <div className="montant"><span>{numStr(montantPret)}</span> €</div>
+      <div className="caracteristiques">
+      <div className="sectionFirst">
+        <div>Résultat de votre prêt pour votre projet</div>
       </div>
-      <div className="categorieCaracteristiques">
-        <div className="title">Mensualité</div>
-        <div className="montant"><span>{numStr(mensualite())}</span> €</div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Montant du prêt</div>
+          <div className="montant"><span>{numStr(montantPret)}</span> €</div>
+        </div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Mensualité</div>
+          <div className="montant"><span>{numStr(mensualite())}</span> €</div>
+        </div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Assurances /mois</div>
+          <div className="montant"><span>{numStr(adi())}</span> €</div>
+        </div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Taux endettement</div>
+          <div className="montant"><span>{endettement()}</span> %</div>
+        </div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Reste à vivre /mois</div>
+          <div className="montant"><span>{rav()}</span> €</div>
+        </div>
+        <div className="categorieCaracteristiques">
+          <div className="title">Epargne restante</div>
+          <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
+        </div>
       </div>
-      <div className="categorieCaracteristiques">
-        <div className="title">Assurances /mois</div>
-        <div className="montant"><span>{numStr(adi())}</span> €</div>
-      </div>
-      <div className="categorieCaracteristiques">
-        <div className="title">Taux endettement</div>
-        <div className="montant"><span>{endettement()}</span> %</div>
-      </div>
-      <div className="categorieCaracteristiques">
-        <div className="title">Reste à vivre /mois</div>
-        <div className="montant"><span>{rav()}</span> €</div>
-      </div>
-      <div className="categorieCaracteristiques">
-        <div className="title">Epargne restante</div>
-        <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
-      </div>
-    </div>
-    <TableauAmortissement
-    montantPret = {montantPret}
-    mensualite = {mensualite()}
-    duree = {props.duree}
-    taux = {props.taux}
-    />
+      <TableauAmortissement
+        montantPret={montantPret}
+        mensualite={mensualite()}
+        duree={props.duree}
+        taux={props.taux}
+      />
     </div>
   );
 }

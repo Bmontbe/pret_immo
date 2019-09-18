@@ -34,7 +34,7 @@ const totalApport = () => {
   return (
  <div className="recap">
     <div className="sectionFirst">
-     <div>{props.nomProjet ? `Mon projet : ${props.nomProjet}` : "Mon projet"}</div>
+     <div>{props.nomProjet ? `Récapitulatif de mon projet : ${props.nomProjet}` : "Récapitulatif de mon projet"}</div>
     </div>
    <div className="categorie">
      <div className="title">Montant de l'acquisition : </div>
