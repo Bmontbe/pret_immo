@@ -42,6 +42,7 @@ function TableauAmortissement(props) {
           mensualiteHorsInteret = (mensualite - interet).toFixed(2)
           lineArray = [...lineArray,{
             montantPret: montantPret,
+            mensualite:mensualite,
             mensualiteHorsInteret: mensualiteHorsInteret,
             interet: interet,
             capitalRestant: capitalRestant,
@@ -54,6 +55,7 @@ function TableauAmortissement(props) {
           mensualiteHorsInteret = (mensualite - interet).toFixed(2)
           lineArray = [...lineArray,{
             montantPret: montantPret,
+            mensualite:mensualite,
             mensualiteHorsInteret: mensualiteHorsInteret,
             interet: interet,
             capitalRestant: capitalRestant,
@@ -63,9 +65,11 @@ function TableauAmortissement(props) {
           montantPret = lineArray[i-1].capitalRestant
           capitalRestant = 0
           interet = Number(montantPret * props.taux/12).toFixed(2)
+          mensualite = lineArray[i-1].capitalRestant
           mensualiteHorsInteret = (mensualite - interet).toFixed(2)
           lineArray = [...lineArray,{
             montantPret: montantPret,
+            mensualite:mensualite,
             interet: interet,
             mensualiteHorsInteret: mensualiteHorsInteret,
             capitalRestant: capitalRestant,
@@ -97,7 +101,7 @@ function TableauAmortissement(props) {
           <div className="lignePret">
       <div className="colonne1">{index}</div>
       <div className="colonne">{line.montantPret}</div>
-      <div className="colonne">{props.mensualite}</div>
+      <div className="colonne">{line.mensualite}</div>
       <div className="colonne3">{line.mensualiteHorsInteret}</div>
       <div className="colonne3">{line.interet}</div>
       <div className="colonne">{line.capitalRestant}</div>
