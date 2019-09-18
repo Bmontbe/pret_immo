@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Modal, Button } from 'semantic-ui-react';
 import './Caracteristiques.css';
 import { tsOptionalType } from '@babel/types';
+import TableauAmortissement from '../TableauAmortissement/TableauAmortissement'
 
 function Caracteristiques(props) {
 
@@ -44,6 +45,7 @@ function Caracteristiques(props) {
   }
 
   return (
+    <div>
     <div className="caracteristiques">
       <div className="categorieCaracteristiques">
         <div className="title">Montant du prêt : </div>
@@ -65,6 +67,12 @@ function Caracteristiques(props) {
         <div className="title">Epargne restante : </div>
         <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
       </div>
+    </div>
+    <TableauAmortissement
+    montantPret = {montantPret}
+    mensualite = {mensualite()}
+    duree = {props.duree}
+    />
     </div>
   );
 }
