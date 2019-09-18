@@ -52,10 +52,11 @@ function Caracteristiques(props) {
 
   return (
     <div>
-      <div className="caracteristiques">
-      <div className="sectionFirst">
-        <div>Résultat de votre prêt pour votre projet</div>
+      <div className="blockCaracteristiques">
+      <div className="sectionCaracteristiques">
+        <div className="titreCaracteristiques">Résultat de votre prêt pour votre projet</div>
       </div>
+      <div className="caracteristiques">
         <div className="categorieCaracteristiques">
           <div className="title">Montant du prêt</div>
           <div className="montant"><span>{numStr(montantPret)}</span> €</div>
@@ -79,6 +80,7 @@ function Caracteristiques(props) {
         <div className="categorieCaracteristiques">
           <div className="title">Epargne restante</div>
           <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
+        </div>
         </div>
       </div>
       <TableauAmortissement

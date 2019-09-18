@@ -47,6 +47,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant de l'acquisition"
+                min="0"
                 onChange={(e) => setMontantAcquisition(e.target.value)}
                 placeholder="Montant de l'acquisition"
               />
@@ -55,6 +56,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant des travaux"
+                min="0"
                 onChange={(e) => setMontantTravaux(e.target.value)}
                 placeholder="Montant travaux"
               />
@@ -68,6 +70,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Monsieur"
+                    min="0"
                     onChange={(e) => setRevMonsieur(e.target.value)}
                     placeholder="Monsieur"
                   />
@@ -76,6 +79,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Madame"
+                    min="0"
                     onChange={(e) => setRevMadame(e.target.value)}
                     placeholder="Madame"
                   />
@@ -84,6 +88,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Autres"
+                    min="0"
                     onChange={(e) => setAutresRevenus(e.target.value)}
                     placeholder="Autres"
                   />
@@ -97,6 +102,7 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Mes Charges"
+                    min="0"
                     onChange={(e) => setCharges(e.target.value)}
                     placeholder="Mes charges"
                   />
@@ -110,6 +116,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon épargne"
+                min="0"
                 onChange={(e) => setEpargne(e.target.value)}
                 placeholder="Mon épargne"
               />
@@ -118,6 +125,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon apport"
+                min="0"
                 onChange={(e) => setApport(e.target.value)}
                 placeholder="Mon apport"
               />
@@ -126,6 +134,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Autre Apport"
+                min="0"
                 onChange={(e) => setApportSup(e.target.value)}
                 placeholder="Autre Apport"
               />
@@ -141,6 +150,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Durée (mois)"
+                min="0"
                 onChange={(e) => setDuree(e.target.value)}
                 placeholder="Durée (mois)"
               />
@@ -149,6 +159,8 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Taux d'emprunt"
+                min="0"
+                max="99"
                 onChange={(e) => setTaux(e.target.value)}
                 placeholder="Taux d'emprunt"
               />
@@ -159,6 +171,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Monsieur (€) / mois"
+                min="0"
                 onChange={(e) => setAssurancesMonsieur(e.target.value)}
                 placeholder="Assurance Monsieur"
               />
@@ -167,6 +180,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Madame (€) / mois"
+                min="0"
                 onChange={(e) => setAssurancesMadame(e.target.value)}
                 placeholder="Assurance Madame"
               />
@@ -177,6 +191,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Garanties"
+                min="0"
                 onChange={(e) => setGarantie(e.target.value)}
                 placeholder="Garanties"
               />
@@ -185,6 +200,7 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Frais Dossier"
+                min="0"
                 onChange={(e) => setFraisDossier(e.target.value)}
                 placeholder="Frais Dossier"
               />

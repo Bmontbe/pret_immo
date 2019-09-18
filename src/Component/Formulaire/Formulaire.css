@@ -34,14 +34,6 @@ label {
   border-radius: 5rem;
 }
 
-.caracteristiques{
-  padding: 2.5rem;
-  background-color: #ce8278;
-  width: 100%;
-  display:flex;
-  border-radius: 5rem;
-}
-
 .sectionFirst {
   color: #282c34;
   font-size: 16px;
