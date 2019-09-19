@@ -7,10 +7,12 @@ function TableauAmortissement(props) {
 
   const [array, setArray] = useState([])
 
-  // useEffect(() => {
-  //  arrayPret()
-  //   console.log(array)
-  // }, [props.mensualite] )
+  useEffect(() => {
+    if(props.mensualite!=0){
+   arrayPret()
+    }
+    console.log(array)
+  }, [props.mensualite] )
 
   const numStr = (a, b) => {
     a = '' + a;
@@ -81,11 +83,6 @@ function TableauAmortissement(props) {
 
     return (
       <div className="blockTableau">
-        {props.mensualite>0 ?
-        <Button className = "buttonTableau" onClick={arrayPret}>tableau</Button>
-        :
-        <div className="info">Obtenez votre Tableau d'Amortissement en remplissant les champs</div>
-          }
     {array && array.length>0 ?
         <div className="tableau">   
         <div className="lignePretTitre">

@@ -1,11 +1,8 @@
 .blockTableau{
-  text-align: center;
-  margin-top: 2rem;
-  
+  text-align: center;  
 }
 
 .tableau{
-  margin-top: 2rem;
   padding: 2rem;
   border-radius: 5rem;
   background-color: #cecaca;
