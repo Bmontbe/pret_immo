@@ -69,9 +69,43 @@ label {
   width: 30%;
 }
 
-@media screen and (max-width: 1150px) {
+.ui.form .fields {
+  align-items: flex-end !important;
+}
+
+@media only screen and (min-width : 600px) and (max-width : 1024px) {
+ 
+  .formulaireRecap{
+    display : flex;
+    flex-wrap: wrap;
+  }
+  .formulaireProjet{
+    width: 65%;
+  }
+  
+  .formulaireBanque{
+    width: 35%;
+  }
+
+  .recapPret{
+    width: 100%;
+    display:flex;
+  }
+
+  .formulaire {
+    display : flex;
+    flex-wrap: wrap;
+  }
+
+  .ui.form [class*="equal width"].fields>.field {
+    flex: 1 1 auto;
+    width: 50%;
+ }
+  }
+
+@media screen and (max-width: 600px) {
   .formulaireRecap, .block {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .formulaireProjet, .formulaireBanque, .recapPret, .revenus, .charges {

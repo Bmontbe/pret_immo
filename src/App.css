@@ -3,3 +3,22 @@
   font-size: 26px;
   margin: 2rem;
 }
+
+.dispositionBlock{
+  display:flex;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+ 
+  .dispositionBlock{
+    display : flex;
+    flex-wrap: wrap;
+  }
+  .formulaireProjet{
+    width: 60%;
+  }
+  
+  .formulaireBanque{
+    width: 40%;
+  }
+  }

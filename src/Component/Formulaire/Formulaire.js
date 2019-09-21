@@ -10,7 +10,7 @@ function Formulaire(props) {
   const [montantAcquisition, setMontantAcquisition] = useState(0)
   const [montantTravaux, setMontantTravaux] = useState(0)
   const [tauxNotaire, setTauxNotaire] = useState(0.075)
-  const [tauxAgence, setTauxAgence] = useState(0.0478)
+  const [tauxAgence, setTauxAgence] = useState(0)
   const [revMonsieur, setRevMonsieur] = useState(0)
   const [revMadame, setRevMadame] = useState(0)
   const [autresRevenus, setAutresRevenus] = useState(0)
@@ -33,7 +33,7 @@ function Formulaire(props) {
         <div className='formulaireProjet'>
           <Form >
             <div className="sectionFirst"> Mon projet</div>
-            <Form.Group widths='equal'>
+            <Form.Group className='formulaire' widths='equal'>
               <Form.Input
                 fluid
                 id='form-subcomponent-shorthand-input-first-name'
@@ -50,6 +50,15 @@ function Formulaire(props) {
                 min="0"
                 onChange={(e) => setMontantAcquisition(e.target.value)}
                 placeholder="Montant de l'acquisition"
+              />
+               <Form.Input
+                fluid
+                id='form-subcomponent-shorthand-input-first-name'
+                type="number"
+                label="Taux agence Immobilière"
+                min="0"
+                onChange={(e) => setTauxAgence((e.target.value)/100)}
+                placeholder="Taux agence Immobilière"
               />
               <Form.Input
                 fluid
@@ -212,8 +221,6 @@ function Formulaire(props) {
             nomProjet={nomProjet}
             montantAcquisition={Number(montantAcquisition)}
             montantTravaux={Number(montantTravaux)}
-            tauxNotaire={Number(tauxNotaire/100)}
-            tauxAgence={Number(tauxAgence/100)}
             fraisNotaire = {montantAcquisition*tauxNotaire}
             fraisAgence = {montantAcquisition*tauxAgence}
             revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
@@ -232,8 +239,6 @@ function Formulaire(props) {
         nomProjet={nomProjet}
         montantAcquisition={Number(montantAcquisition)}
         montantTravaux={Number(montantTravaux)}
-        tauxNotaire={Number(tauxNotaire/100)}
-        tauxAgence={Number(tauxAgence/100)}
         fraisNotaire = {montantAcquisition*tauxNotaire}
         fraisAgence = {montantAcquisition*tauxAgence}
         revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
