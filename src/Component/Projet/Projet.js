@@ -45,7 +45,7 @@ const totalApport = () => {
      <div className="montant"><span>{numStr(props.montantTravaux)}</span> euros</div>
     </div>
     <div className="categorie">
-     <div className="title">Frais de notaire (7,5%)</div>
+     <div className="title">Frais de notaire ({props.tauxNotaire}%)</div>
      <div className="montant"><span>{numStr(Number(props.fraisNotaire).toFixed(0))}</span> euros</div>
     </div>
     <div className="categorie">

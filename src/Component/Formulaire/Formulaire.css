@@ -73,6 +73,21 @@ label {
   align-items: flex-end !important;
 }
 
+.plusButton {
+  color: #ce8278;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: right;
+  padding-left: 5px;
+}
+
+.options {
+display : flex;
+justify-content: flex-end;
+margin: 0.5%;
+
+}
+
 @media only screen and (min-width : 600px) and (max-width : 1024px) {
  
   .formulaireRecap{
