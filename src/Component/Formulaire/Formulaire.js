@@ -3,99 +3,30 @@ import { Form, Modal, Button } from 'semantic-ui-react';
 import Projet from '../Projet/Projet'
 import Caracteristiques from '../Caracteristiques/Caracteristiques'
 import './Formulaire.css';
+import { pretInfos } from '../Utils/pret';
 
 function Formulaire(props) {
-  //Projet
-  const [nomProjet, setNomProjet] = useState('')
-  const [montantAcquisition, setMontantAcquisition] = useState()
-  const [montantTravaux, setMontantTravaux] = useState()
-  const [tauxNotaire, setTauxNotaire] = useState(0.08)
-  const [tauxAgence, setTauxAgence] = useState()
-  const [revMonsieur, setRevMonsieur] = useState()
-  const [revMadame, setRevMadame] = useState()
-  const [autresRevenus, setAutresRevenus] = useState()
-  const [charges, setCharges] = useState()
-  const [epargne, setEpargne] = useState()
-  const [apport, setApport] = useState()
-  const [apportSup, setApportSup] = useState()
 
-  //Banque
-  const [duree, setDuree] = useState()
-  const [taux, setTaux] = useState()
-  const [assurancesMonsieur, setAssurancesMonsieur] = useState()
-  const [assurancesMadame, setAssurancesMadame] = useState()
-  const [garantie, setGarantie] = useState()
-  const [fraisDossier, setFraisDossier] = useState()
+  const [projet, setProjet] = useState(pretInfos)
 
   useEffect(() => {
-    //Projet
-
-    setNomProjet(localStorage.getItem("nomProjet"))
-    setMontantAcquisition(localStorage.getItem("montantAcquisition"))
-    setMontantTravaux(localStorage.getItem("montantTravaux"))
-    setTauxAgence(localStorage.getItem("tauxAgence"))
-    setRevMonsieur(localStorage.getItem("revMonsieur"))
-    setRevMadame(localStorage.getItem("revMadame"))
-    setAutresRevenus(localStorage.getItem("autresRevenus"))
-    setCharges(localStorage.getItem("charges"))
-    setEpargne(localStorage.getItem("epargne"))
-    setApport(localStorage.getItem("apport"))
-    setApportSup(localStorage.getItem("apportSup"))
-    //Banque
-    setDuree(localStorage.getItem("duree"))
-    setTaux(localStorage.getItem("taux"))
-    setAssurancesMonsieur(localStorage.getItem("assurancesMonsieur"))
-    setAssurancesMadame(localStorage.getItem("assurancesMadame"))
-    setGarantie(localStorage.getItem("garantie"))
-    setFraisDossier(localStorage.getItem("fraisDossier"))
-
-
+    if (localStorage.getItem('projet')) {
+      return setProjet(JSON.parse(localStorage.getItem('projet')));
+    } return projet
   }, [])
 
   useEffect(() => {
-    //Projet
-    nomProjet != null && localStorage.setItem("nomProjet", nomProjet)
-    montantAcquisition != null && localStorage.setItem("montantAcquisition", montantAcquisition)
-    montantTravaux != null && localStorage.setItem("montantTravaux", montantTravaux)
-    tauxAgence != null && localStorage.setItem("tauxAgence", tauxAgence)
-    revMonsieur != null && localStorage.setItem("revMonsieur", revMonsieur)
-    revMadame != null && localStorage.setItem("revMadame", revMadame)
-    autresRevenus != null && localStorage.setItem("autresRevenus", autresRevenus)
-    charges != null && localStorage.setItem("charges", charges)
-    epargne != null && localStorage.setItem("epargne", epargne)
-    apport != null && localStorage.setItem("apport", apport)
-    apportSup != null && localStorage.setItem("apportSup", apportSup)
-    //Banque
-    duree != null && localStorage.setItem("duree", duree)
-    taux != null && localStorage.setItem("taux", taux)
-    assurancesMonsieur != null && localStorage.setItem("assurancesMonsieur", assurancesMonsieur)
-    assurancesMadame != null && localStorage.setItem("assurancesMadame", assurancesMadame)
-    garantie != null && localStorage.setItem("garantie", garantie)
-    fraisDossier != null && localStorage.setItem("fraisDossier", fraisDossier)
-  })
+    projet != {} && localStorage.setItem("projet", JSON.stringify(projet))
+
+  }, [projet])
 
   const supprimer = () => {
-    //Projet
-    nomProjet != null && localStorage.removeItem("nomProjet")
-    montantAcquisition != null && localStorage.removeItem("montantAcquisition")
-    montantTravaux != null && localStorage.removeItem("montantTravaux")
-    tauxAgence != null && localStorage.removeItem("tauxAgence")
-    revMonsieur != null && localStorage.removeItem("revMonsieur")
-    revMadame != null && localStorage.removeItem("revMadame")
-    autresRevenus != null && localStorage.removeItem("autresRevenus")
-    charges != null && localStorage.removeItem("charges")
-    epargne != null && localStorage.removeItem("epargne")
-    apport != null && localStorage.removeItem("apport")
-    apportSup != null && localStorage.removeItem("apportSup")
-    //Banque
-    duree != null && localStorage.removeItem("duree")
-    taux != null && localStorage.removeItem("taux")
-    assurancesMonsieur != null && localStorage.removeItem("assurancesMonsieur")
-    assurancesMadame != null && localStorage.removeItem("assurancesMadame")
-    garantie != null && localStorage.removeItem("garantie")
-    fraisDossier != null && localStorage.removeItem("fraisDossier")
-    window.location.reload()
+    setProjet(pretInfos)
   }
+
+  const handleChange = value => event => {
+    setProjet({ ...projet, [value]: event.target.value });
+  };
 
   return (
     <div>
@@ -120,8 +51,8 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="text"
                 label="Nom du projet"
-                defaultValue={nomProjet}
-                onChange={(e) => setNomProjet(e.target.value)}
+                value={projet.nomProjet}
+                onChange={handleChange('nomProjet')}
                 placeholder="Nom du projet"
               />
               <Form.Input
@@ -129,9 +60,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant de l'acquisition"
-                defaultValue={montantAcquisition}
+                value={projet.montantAcquisition}
                 min="0"
-                onChange={(e) => setMontantAcquisition(e.target.value)}
+                onChange={handleChange('montantAcquisition')}
                 placeholder="Montant de l'acquisition"
               />
               <Form.Input
@@ -139,9 +70,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Taux agence Immobilière"
-                defaultValue={tauxAgence}
+                value={projet.tauxAgence}
                 min="0"
-                onChange={(e) => setTauxAgence((e.target.value) / 100)}
+                onChange={handleChange('tauxAgence')}
                 placeholder="Taux agence Immobilière"
               />
               <Form.Input
@@ -149,9 +80,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Montant des travaux"
-                defaultValue={montantTravaux}
+                value={projet.montantTravaux}
                 min="0"
-                onChange={(e) => setMontantTravaux(e.target.value)}
+                onChange={handleChange('montantTravaux')}
                 placeholder="Montant travaux"
               />
             </Form.Group>
@@ -164,9 +95,9 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Monsieur"
-                    defaultValue={revMonsieur}
+                    value={projet.revMonsieur}
                     min="0"
-                    onChange={(e) => setRevMonsieur(e.target.value)}
+                    onChange={handleChange('revMonsieur')}
                     placeholder="Monsieur"
                   />
                   <Form.Input
@@ -174,9 +105,9 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Madame"
-                    defaultValue={revMadame}
+                    value={projet.revMadame}
                     min="0"
-                    onChange={(e) => setRevMadame(e.target.value)}
+                    onChange={handleChange('revMadame')}
                     placeholder="Madame"
                   />
                   <Form.Input
@@ -184,9 +115,9 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Autres"
-                    defaultValue={autresRevenus}
+                    value={projet.autresRevenus}
                     min="0"
-                    onChange={(e) => setAutresRevenus(e.target.value)}
+                    onChange={handleChange('autresRevenus')}
                     placeholder="Autres"
                   />
                 </Form.Group>
@@ -199,9 +130,9 @@ function Formulaire(props) {
                     id='form-subcomponent-shorthand-input-first-name'
                     type="number"
                     label="Mes Charges"
-                    defaultValue={charges}
+                    value={projet.charges}
                     min="0"
-                    onChange={(e) => setCharges(e.target.value)}
+                    onChange={handleChange('charges')}
                     placeholder="Mes charges"
                   />
                 </Form.Group>
@@ -214,9 +145,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon épargne"
-                defaultValue={epargne}
+                value={projet.epargne}
                 min="0"
-                onChange={(e) => setEpargne(e.target.value)}
+                onChange={handleChange('epargne')}
                 placeholder="Mon épargne"
               />
               <Form.Input
@@ -224,9 +155,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Mon apport"
-                defaultValue={apport}
+                value={projet.apport}
                 min="0"
-                onChange={(e) => setApport(e.target.value)}
+                onChange={handleChange('apport')}
                 placeholder="Mon apport"
               />
               <Form.Input
@@ -234,9 +165,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Autre Apport"
-                defaultValue={apportSup}
+                value={projet.apportSup}
                 min="0"
-                onChange={(e) => setApportSup(e.target.value)}
+                onChange={handleChange('apportSup')}
                 placeholder="Autre Apport"
               />
             </Form.Group>
@@ -250,10 +181,10 @@ function Formulaire(props) {
                 fluid
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
-                label="Durée (mois)"
-                defaultValue={duree}
+                label="Durée (année)"
+                value={projet.duree}
                 min="0"
-                onChange={(e) => setDuree(e.target.value)}
+                onChange={handleChange('duree')}
                 placeholder="Durée (mois)"
               />
               <Form.Input
@@ -261,10 +192,10 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Taux d'emprunt"
-                defaultValue={taux}
+                value={projet.taux}
                 min="0"
                 max="99"
-                onChange={(e) => setTaux(e.target.value)}
+                onChange={handleChange('taux')}
                 placeholder="Taux d'emprunt"
               />
             </Form.Group>
@@ -274,9 +205,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Monsieur (€) / mois"
-                defaultValue={assurancesMonsieur}
+                value={projet.assurancesMonsieur}
                 min="0"
-                onChange={(e) => setAssurancesMonsieur(e.target.value)}
+                onChange={handleChange('assurancesMonsieur')}
                 placeholder="Assurance Monsieur"
               />
               <Form.Input
@@ -284,9 +215,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Assurance Madame (€) / mois"
-                defaultValue={assurancesMadame}
+                value={projet.assurancesMadame}
                 min="0"
-                onChange={(e) => setAssurancesMadame(e.target.value)}
+                onChange={handleChange('assurancesMadame')}
                 placeholder="Assurance Madame"
               />
             </Form.Group>
@@ -296,9 +227,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Garanties"
-                defaultValue={garantie}
+                value={projet.garantie}
                 min="0"
-                onChange={(e) => setGarantie(e.target.value)}
+                onChange={handleChange('garantie')}
                 placeholder="Garanties"
               />
               <Form.Input
@@ -306,9 +237,9 @@ function Formulaire(props) {
                 id='form-subcomponent-shorthand-input-first-name'
                 type="number"
                 label="Frais Dossier"
-                defaultValue={fraisDossier}
+                value={projet.fraisDossier}
                 min="0"
-                onChange={(e) => setFraisDossier(e.target.value)}
+                onChange={handleChange('fraisDossier')}
                 placeholder="Frais Dossier"
               />
             </Form.Group>
@@ -316,41 +247,41 @@ function Formulaire(props) {
         </div>
         <div className='recapPret'>
           <Projet
-            nomProjet={nomProjet}
-            montantAcquisition={Number(montantAcquisition)}
-            montantTravaux={Number(montantTravaux)}
-            tauxNotaire={tauxNotaire * 100}
-            fraisNotaire={montantAcquisition * tauxNotaire}
-            fraisAgence={montantAcquisition * tauxAgence}
-            revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
-            charges={Number(charges)}
-            epargne={Number(epargne)}
-            apport={Number(apport)}
-            apportSup={Number(apportSup)}
-            assurancesMonsieur={Number(assurancesMonsieur)}
-            assurancesMadame={Number(assurancesMadame)}
-            garantie={Number(garantie)}
-            fraisDossier={Number(fraisDossier)}
+            nomProjet={projet.nomProjet}
+            montantAcquisition={Number(projet.montantAcquisition)}
+            montantTravaux={Number(projet.montantTravaux)}
+            tauxNotaire={projet.tauxNotaire * 100}
+            fraisNotaire={projet.montantAcquisition * projet.tauxNotaire}
+            fraisAgence={projet.montantAcquisition * (projet.tauxAgence / 100)}
+            revenus={Number(projet.revMonsieur) + Number(projet.revMadame) + Number(projet.autresRevenus)}
+            charges={Number(projet.charges)}
+            epargne={Number(projet.epargne)}
+            apport={Number(projet.apport)}
+            apportSup={Number(projet.apportSup)}
+            assurancesMonsieur={Number(projet.assurancesMonsieur)}
+            assurancesMadame={Number(projet.assurancesMadame)}
+            garantie={Number(projet.garantie)}
+            fraisDossier={Number(projet.fraisDossier)}
           />
         </div>
       </div>
       <Caracteristiques
-        nomProjet={nomProjet}
-        montantAcquisition={Number(montantAcquisition)}
-        montantTravaux={Number(montantTravaux)}
-        fraisNotaire={montantAcquisition * tauxNotaire}
-        fraisAgence={montantAcquisition * tauxAgence}
-        revenus={Number(revMonsieur) + Number(revMadame) + Number(autresRevenus)}
-        charges={Number(charges)}
-        epargne={Number(epargne)}
-        apport={Number(apport)}
-        apportSup={Number(apportSup)}
-        duree={Number(duree)}
-        taux={Number(taux / 100)}
-        assurancesMonsieur={Number(assurancesMonsieur)}
-        assurancesMadame={Number(assurancesMadame)}
-        garantie={Number(garantie)}
-        fraisDossier={Number(fraisDossier)}
+        nomProjet={projet.nomProjet}
+        montantAcquisition={Number(projet.montantAcquisition)}
+        montantTravaux={Number(projet.montantTravaux)}
+        fraisNotaire={projet.montantAcquisition * projet.tauxNotaire}
+        fraisAgence={projet.montantAcquisition * (projet.tauxAgence / 100)}
+        revenus={Number(projet.revMonsieur) + Number(projet.revMadame) + Number(projet.autresRevenus)}
+        charges={Number(projet.charges)}
+        epargne={Number(projet.epargne)}
+        apport={Number(projet.apport)}
+        apportSup={Number(projet.apportSup)}
+        duree={Number(projet.duree*12)}
+        taux={Number(projet.taux / 100)}
+        assurancesMonsieur={Number(projet.assurancesMonsieur)}
+        assurancesMadame={Number(projet.assurancesMadame)}
+        garantie={Number(projet.garantie)}
+        fraisDossier={Number(projet.fraisDossier)}
       />
     </div>
   );

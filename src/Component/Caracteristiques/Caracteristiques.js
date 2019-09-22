@@ -6,21 +6,6 @@ import TableauAmortissement from '../TableauAmortissement/TableauAmortissement'
 
 function Caracteristiques(props) {
 
-  const numStr = (a, b) => {
-    a = '' + a;
-    b = b || ' ';
-    var c = '',
-      d = 0;
-    while (a.match(/^0[0-9]/)) {
-      a = a.substr(1);
-    }
-    for (var i = a.length - 1; i >= 0; i--) {
-      c = (d != 0 && d % 3 == 0) ? a[i] + b + c : a[i] + c;
-      d++;
-    }
-    return c;
-  }
-
   const montantPret = (props.montantAcquisition + props.montantTravaux - props.apport - props.apportSup +
     props.fraisAgence + props.fraisNotaire + props.garantie + props.fraisDossier).toFixed(0)
 
@@ -59,15 +44,15 @@ function Caracteristiques(props) {
       <div className="caracteristiques">
         <div className="categorieCaracteristiques">
           <div className="title">Montant du prêt</div>
-          <div className="montant"><span>{numStr(montantPret)}</span> €</div>
+          <div className="montant"><span>{new Intl.NumberFormat().format(montantPret)}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
           <div className="title">Mensualité</div>
-          <div className="montant"><span>{numStr(mensualite())}</span> €</div>
+          <div className="montant"><span>{new Intl.NumberFormat().format(mensualite())}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
           <div className="title">Assurances emprunteur(s) /mois</div>
-          <div className="montant"><span>{numStr(adi())}</span> €</div>
+          <div className="montant"><span>{new Intl.NumberFormat().format(adi())}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
           <div className="title">Taux endettement</div>
@@ -75,11 +60,11 @@ function Caracteristiques(props) {
         </div>
         <div className="categorieCaracteristiques">
           <div className="title">Reste à vivre /mois</div>
-          <div className="montant"><span>{rav()}</span> €</div>
+          <div className="montant"><span>{new Intl.NumberFormat().format(rav())}</span> €</div>
         </div>
         <div className="categorieCaracteristiques">
           <div className="title">Epargne restante</div>
-          <div className="montant"><span>{props.epargne - props.apport}</span> €</div>
+          <div className="montant"><span>{new Intl.NumberFormat().format(props.epargne - props.apport)}</span> €</div>
         </div>
         </div>
       </div>

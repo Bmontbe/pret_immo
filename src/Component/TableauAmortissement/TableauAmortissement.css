@@ -23,14 +23,17 @@
 
 .colonne1 {
   width: 5%;
+  text-align:right;
 }
 
 .colonne {
   width: 19%;
+  text-align:right;
 }
 
 .colonne3 {
   width: 19%;
+  text-align:right;
 }
 
 @media screen and (max-width: 520px) {
