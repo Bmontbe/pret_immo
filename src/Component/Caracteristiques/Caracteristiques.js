@@ -17,9 +17,9 @@ function Caracteristiques(props) {
   const nouvellesCharges = props.charges + parseFloat(mensualite())
 
   const endettement = () => {
-    if (mensualite() > 0) {
+    if (mensualite() > 0 && props.revenus) {
       return ((nouvellesCharges / props.revenus) * 100).toFixed(2)
-    } else if (mensualite() <= 0) {
+    } else if (mensualite() <= 0 && props.revenus) {
       return ((props.charges / props.revenus) * 100).toFixed(2)
     }
     else return 0
