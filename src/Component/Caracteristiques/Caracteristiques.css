@@ -39,6 +39,19 @@
   width: 100%;
 }
 
+.categorieCaracteristiques .info {
+  font-size:12px;
+  width: 100%;
+  font-style: italic;
+}
+
+.categorieCaracteristiques .infoMontant {
+  font-size:12px;
+  width: 100%;
+  text-align:left;
+  font-style: italic;
+}
+
 @media screen and (max-width: 1150px) {
   .caracteristiques{
     flex-direction: column;
@@ -47,6 +60,10 @@
   .categorieCaracteristiques{
     width: 100%;
     display:flex;
+  }
+
+  .categorieCaracteristiques .details {
+    flex-direction: column;
   }
 
   .categorieCaracteristiques .title {
@@ -58,5 +75,12 @@
     font-size:14px;
     text-align:right;
     width: 40%;
+  }
+
+  .categorieCaracteristiques .infoMontant {
+    font-size:12px;
+    width: 100%;
+    text-align:right;
+    font-style: italic;
   }
 }

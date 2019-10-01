@@ -1,16 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Formulaire from './Component/Formulaire/Formulaire'
-import Caracteristiques from './Component/Caracteristiques/Caracteristiques';
-import TableauAmortissement from './Component/TableauAmortissement/TableauAmortissement';
-import Projet from './Component/Projet/Projet';
+import Formulaire from './Component/Formulaire/Formulaire';
+import Charges from './Component/Charges/Charges';
+import NavigationBar from './Component/NavigationBar/NavigationBar';
 
 function App() {
   return (
     <div>
-      <div className="appliImmo">Mon prêt immo</div>
-    <Formulaire></Formulaire>
+      <NavigationBar></NavigationBar>
+      <Switch>
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Formulaire} />
+        <Route path={`${process.env.PUBLIC_URL}/charges`} component={Charges} />
+      </Switch>
     </div>
   );
 }
