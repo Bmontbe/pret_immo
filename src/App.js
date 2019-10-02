@@ -10,8 +10,8 @@ function App() {
     <div>
       <NavigationBar />
       <Switch>
-        <Route exact path="/" component={Formulaire} />
-        <Route path="/charges" component={Charges} />
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Formulaire} />
+        <Route path={`${process.env.PUBLIC_URL}/charges`} component={Charges} />
       </Switch>
     </div>
   );
