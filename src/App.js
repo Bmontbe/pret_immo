@@ -8,8 +8,11 @@ import NavigationBar from './Component/NavigationBar/NavigationBar';
 function App() {
   return (
     <div>
-      <NavigationBar/>
-
+      <NavigationBar />
+      <Switch>
+        <Route exact path="/" component={Formulaire} />
+        <Route path="/charges" component={Charges} />
+      </Switch>
     </div>
   );
 }
