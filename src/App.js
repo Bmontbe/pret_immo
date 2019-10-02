@@ -8,7 +8,7 @@ import NavigationBar from './Component/NavigationBar/NavigationBar';
 function App() {
   return (
     <div>
-      <NavigationBar></NavigationBar>
+      <NavigationBar/>
       <Switch>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={Formulaire} />
         <Route path={`${process.env.PUBLIC_URL}/charges`} component={Charges} />
