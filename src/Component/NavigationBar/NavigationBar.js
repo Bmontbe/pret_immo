@@ -19,10 +19,13 @@ function NavigationBar(props) {
     <div>
       <Navbar color="light" className="navigationBar" light expand="md">
         <NavbarBrand>
-        <Button onClick={props.switchViewFormulaire} >Mon prêt immobilier</Button>
+        <div>Mon prêt immobilier</div>
         </NavbarBrand>
       
           <Nav className="ml-auto" navbar>
+          <NavItem className="option">
+            <div onClick={props.switchViewFormulaire} >Calcul de mon prêt</div>
+          </NavItem>
           <NavItem className="option">
             <div onClick={props.switchViewCharges} >Calculer mes charges quotidiennes</div>
           </NavItem>
