@@ -9,22 +9,22 @@ function Charges(props) {
   const [charges, setCharges] = useState({
     fraisFixes: []
   })
-  const [fraisFixes, setFraisFixes] = useState({nomFrais:"", montantFrais:""})
+  const [fraisFixes, setFraisFixes] = useState({ nomFrais: "", montantFrais: "" })
   const [arrayFraisFixes, setArrayFraisFixes] = useState([])
-  const [inputModifFraisFixes, setInputModifFraisFixes] = useState({nomFrais:"", montantFrais:""})
-  const [fraisDivers, setFraisDivers] = useState({nomFrais:"", montantFrais:""})
+  const [inputModifFraisFixes, setInputModifFraisFixes] = useState({ nomFrais: "", montantFrais: "" })
+  const [fraisDivers, setFraisDivers] = useState({ nomFrais: "", montantFrais: "" })
   const [arrayFraisDivers, setArrayFraisDivers] = useState([])
-  const [inputModifFraisDivers, setInputModifFraisDivers] = useState({nomFrais:"", montantFrais:""})
+  const [inputModifFraisDivers, setInputModifFraisDivers] = useState({ nomFrais: "", montantFrais: "" })
 
   useEffect(() => {
     if (localStorage.getItem('arrayFraisFixes')) {
       let array = JSON.parse(localStorage.getItem('arrayFraisFixes'))
       console.log(array)
-      if (array.length>0) {
-      for (let i = 0; i <= array.length; i++) {
-        array[0].edit=true
-      }return setArrayFraisFixes(array)
-    }
+      if (array.length > 0) {
+        for (let i = 0; i <= array.length; i++) {
+          array[0].edit = true
+        } return setArrayFraisFixes(array)
+      }
     } return arrayFraisFixes;
   }, [])
 
@@ -32,11 +32,11 @@ function Charges(props) {
     if (localStorage.getItem('arrayFraisDivers')) {
       let array = JSON.parse(localStorage.getItem('arrayFraisDivers'))
       console.log(array)
-      if (array.length>0) {
-      for (let i = 0; i <= array.length; i++) {
-        array[0].edit=true
-      }return setArrayFraisDivers(array)
-    }
+      if (array.length > 0) {
+        for (let i = 0; i <= array.length; i++) {
+          array[0].edit = true
+        } return setArrayFraisDivers(array)
+      }
     } return arrayFraisDivers;
   }, [])
 
@@ -66,16 +66,16 @@ function Charges(props) {
   };
 
   const addFraisFixes = () => {
-    if(fraisFixes){
-    setArrayFraisFixes([...arrayFraisFixes, fraisFixes])
-    setFraisFixes({nomFrais:"", montantFrais:""})
+    if (fraisFixes) {
+      setArrayFraisFixes([...arrayFraisFixes, fraisFixes])
+      setFraisFixes({ nomFrais: "", montantFrais: "" })
     }
   }
 
   const addFraisDivers = () => {
-    if(fraisDivers){
-    setArrayFraisDivers([...arrayFraisDivers, fraisDivers])
-    setFraisDivers({nomFrais:"", montantFrais:""})
+    if (fraisDivers) {
+      setArrayFraisDivers([...arrayFraisDivers, fraisDivers])
+      setFraisDivers({ nomFrais: "", montantFrais: "" })
     }
   }
 
@@ -149,8 +149,8 @@ function Charges(props) {
 
   return (
     <div>
-      <h1>Mes charges mensuels</h1>
-      <div>Les charges de tous les jours ne comprennent pas le loyer et les emprunts</div>
+      <h1>Mes charges qutidiennes mensuels</h1>
+      <div>Les charges quotidiennes ne comprennent pas le loyer et les emprunts</div>
       <div className="chargesForm">
         <div className="chargesFixes">
           <Form >
@@ -174,14 +174,14 @@ function Charges(props) {
                 onChange={handleChange('montantFrais')}
                 placeholder="Montant frais fixes"
               />
-                <i
-                  className="fas fa-plus-circle buttonForm"
-                  title='Effacer mes données'
-                  onClick={ addFraisFixes }
-                  onKeyDown={() => { }}
-                  role="button"
-                  tabIndex={0}
-                />
+              <i
+                className="fas fa-plus-circle buttonForm"
+                title='Effacer mes données'
+                onClick={addFraisFixes}
+                onKeyDown={() => { }}
+                role="button"
+                tabIndex={0}
+              />
             </Form.Group>
           </Form>
           <div className="recapFrais">
@@ -190,8 +190,8 @@ function Charges(props) {
                 <div>
                   {arrayFraisFixes && arrayFraisFixes[index].edit ?
                     <div className="categorieFrais">
-                      <div className='titleFrais'>{frais.nomFrais}</div>
-                      <div className='montantFrais'>{frais.montantFrais}</div>
+                      <div className='titleFrais'>{frais.nomFrais} €</div>
+                      <div className='montantFrais'>{frais.montantFrais} €</div>
                       <i
                         className="fas fa-pencil-alt buttonForm"
                         title='Effacer mes données'
@@ -246,8 +246,9 @@ function Charges(props) {
                 : ""
             }
           </div>
-          <div>Total des charges :</div>
-          <div>{arrayFraisFixes ? totalChargesFixes(arrayFraisFixes) : ""}</div>
+          <div className="totalCharges">
+          <div>Total des charges : {arrayFraisFixes ? totalChargesFixes(arrayFraisFixes) : ""} €</div>
+          </div>
         </div>
         <div className="chargesDivers">
           <Form>
@@ -271,14 +272,14 @@ function Charges(props) {
                 onChange={handleChange2('montantFrais')}
                 placeholder="Montant frais divers"
               />
-                              <i
-                  className="fas fa-plus-circle buttonForm"
-                  title='Effacer mes données'
-                  onClick={ addFraisDivers }
-                  onKeyDown={() => { }}
-                  role="button"
-                  tabIndex={0}
-                />
+              <i
+                className="fas fa-plus-circle buttonForm"
+                title='Effacer mes données'
+                onClick={addFraisDivers}
+                onKeyDown={() => { }}
+                role="button"
+                tabIndex={0}
+              />
             </Form.Group>
           </Form>
           <div className="recapFrais">
@@ -287,8 +288,8 @@ function Charges(props) {
                 <div>
                   {arrayFraisDivers && arrayFraisDivers[index].edit ?
                     <div className="categorieFrais">
-                      <div className='titleFrais'>{frais.nomFrais}</div>
-                      <div className='montantFrais'>{frais.montantFrais}</div>
+                      <div className='titleFrais'>{frais.nomFrais} €</div>
+                      <div className='montantFrais'>{frais.montantFrais} €</div>
 
                       <i
                         className="fas fa-pencil-alt buttonForm"
@@ -329,7 +330,7 @@ function Charges(props) {
                         onChange={handleChangeModifFraisDivers('montantFrais')}
                         placeholder="Montant frais Divers"
                       />
-<i
+                      <i
                         className="fas fa-check-circle buttonSave"
                         title='Effacer mes données'
                         onClick={() => saveFraisDivers(index)}
@@ -345,12 +346,15 @@ function Charges(props) {
                 : ""
             }
           </div>
-          <div>Total des charges :</div>
-          <div>{arrayFraisDivers ? totalChargesDivers(arrayFraisDivers) : ""}</div>
+          <div className="totalCharges">
+          <div>Total des charges : {arrayFraisDivers ? totalChargesDivers(arrayFraisDivers) : ""} €</div>
+          </div>
         </div>
+
       </div>
 
-      <div>Total : {totalChargesDivers(arrayFraisDivers) + totalChargesDivers(arrayFraisFixes)}</div>
+      <div className="totalCharges">Total : {totalChargesDivers(arrayFraisDivers) + totalChargesDivers(arrayFraisFixes)}</div>
+
     </div>
   );
 }

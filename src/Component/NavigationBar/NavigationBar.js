@@ -24,7 +24,7 @@ function NavigationBar(props) {
       
           <Nav className="ml-auto" navbar>
           <NavItem className="option">
-            <div onClick={props.switchViewCharges} >Calculer mes charges de tous les jours</div>
+            <div onClick={props.switchViewCharges} >Calculer mes charges quotidiennes</div>
           </NavItem>
           </Nav>
       </Navbar>
