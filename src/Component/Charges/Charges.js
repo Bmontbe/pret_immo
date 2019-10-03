@@ -353,7 +353,7 @@ function Charges(props) {
 
       </div>
 
-      <div className="totalCharges">Total : {totalChargesDivers(arrayFraisDivers) + totalChargesDivers(arrayFraisFixes)}</div>
+      <div className="totalCharges">Total : {totalChargesDivers(arrayFraisDivers) + totalChargesDivers(arrayFraisFixes)} €</div>
 
     </div>
   );
