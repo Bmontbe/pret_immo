@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  Button,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -12,19 +13,20 @@ import Formulaire from '../Formulaire/Formulaire';
 import Charges from '../Charges/Charges';
 import './NavigationBar.css';
 
-function NavigationBar() {
-  return (
+function NavigationBar(props) {
+
+    return (
     <div>
       <Navbar color="light" className="navigationBar" light expand="md">
         <NavbarBrand>
-        <Link to={`${process.env.PUBLIC_URL}/`} >Mon prêt immobilier</Link>
+        <Button onClick={props.switchViewFormulaire} >Mon prêt immobilier</Button>
         </NavbarBrand>
       
-          {/* <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto" navbar>
           <NavItem className="option">
-            <Link to={`${process.env.PUBLIC_URL}/charges`} className='linkNavbar' href="#">Calculer mes charges de tous les jours</Link>
+            <div onClick={props.switchViewCharges} >Calculer mes charges de tous les jours</div>
           </NavItem>
-          </Nav> */}
+          </Nav>
       </Navbar>
     </div>
   );
