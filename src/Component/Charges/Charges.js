@@ -190,7 +190,7 @@ function Charges(props) {
                 <div>
                   {arrayFraisFixes && arrayFraisFixes[index].edit ?
                     <div className="categorieFrais">
-                      <div className='titleFrais'>{frais.nomFrais} €</div>
+                      <div className='titleFrais'>{frais.nomFrais}</div>
                       <div className='montantFrais'>{frais.montantFrais} €</div>
                       <i
                         className="fas fa-pencil-alt buttonForm"
@@ -288,7 +288,7 @@ function Charges(props) {
                 <div>
                   {arrayFraisDivers && arrayFraisDivers[index].edit ?
                     <div className="categorieFrais">
-                      <div className='titleFrais'>{frais.nomFrais} €</div>
+                      <div className='titleFrais'>{frais.nomFrais}</div>
                       <div className='montantFrais'>{frais.montantFrais} €</div>
 
                       <i
