@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Modal, Button } from 'semantic-ui-react';
 import './Projet.css';
-import { tsOptionalType } from '@babel/types';
 
 function Projet(props) {
 

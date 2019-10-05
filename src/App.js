@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Formulaire from './Component/Formulaire/Formulaire';
 import Charges from './Component/Charges/Charges';
@@ -7,10 +6,11 @@ import NavigationBar from './Component/NavigationBar/NavigationBar';
 
 function App() {
   const [view, setView] = useState('Formulaire')
+  const [newView, setNewView] = useState()
 
 useEffect(() => {
-  console.log(view)
-})
+  setNewView(view)
+}, [view])
 
   const switchView = (view) => {
     setView(view)
@@ -24,11 +24,14 @@ useEffect(() => {
       switchViewCharges = {() => switchView('Charges')}
       />
       </div>
-      { view === 'Formulaire' && <Formulaire />}
-      { view === 'Charges' && <Charges />}
+      <div>
+      { newView && newView === 'Formulaire' && <Formulaire />}
+      { newView && newView === 'Charges' && <Charges />}
+      </div>
       
     </div>
   );
 }
 
 export default App;
+
