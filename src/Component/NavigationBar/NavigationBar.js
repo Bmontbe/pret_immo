@@ -17,20 +17,23 @@ function NavigationBar(props) {
 
     return (
     <div>
-      <Navbar color="light" className="navigationBar" light expand="md">
-        <NavbarBrand>
-        <div>Mon prêt immobilier</div>
-        </NavbarBrand>
-      
-          <Nav className="ml-auto" navbar>
-          <NavItem className="option">
-            <div onClick={props.switchViewFormulaire} >Calcul de mon prêt</div>
-          </NavItem>
-          <NavItem className="option">
-            <div onClick={props.switchViewCharges} >Calculer mes charges quotidiennes</div>
-          </NavItem>
-          </Nav>
-      </Navbar>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Mon prêt immobilier</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active option">
+        <a onClick={props.switchViewFormulaire} >Calcul de mon prêt</a>
+      </li>
+      <li class="nav-item option">
+        <a onClick={props.switchViewCharges} >Calculer mes charges quotidiennes</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     </div>
   );
 }
